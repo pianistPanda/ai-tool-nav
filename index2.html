@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锦江酒店前厅系统升级✨</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+        /* 色彩定义 */
+        :root {
+            --main-color: #F8D2C9; /* Pantone 13-1023 TCX 杏桃粉 */
+            --secondary-pink: #E6D5D1; /* 莫兰迪灰粉 */
+            --secondary-blue: #A9C5D9; /* 莫兰迪雾霾蓝 */
+            --bg-color: #FFF9F7; /* 奶油白背景 */
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+        body {
+            background-color: var(--bg-color);
+            padding: 20px;
+            line-height: 1.5;
+        }
+        /* 头部logo */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header img {
+            max-width: 300px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .header img:hover {
+            transform: scale(1.05);
+        }
+        /* 标题样式 */
+        .main-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .sub-title {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        /* 卡片容器 - 响应式网格 */
+        .card-container {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* 卡片样式 */
+        .update-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--main-color);
+        }
+        .update-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-version {
+            font-size: 0.85rem;
+            color: var(--secondary-blue);
+            background-color: rgba(169, 197, 217, 0.15);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .card-content {
+            margin-top: 10px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .card-content li {
+            margin-bottom: 8px;
+            list-style: none;
+            position: relative;
+            padding-left: 18px;
+        }
+        .card-content li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+        .card-benefit {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        /* 底部二维码区域 */
+        .qrcode-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .qrcode-section img {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        .qrcode-section img:hover {
+            transform: scale(1.05);
+        }
+        .qrcode-text {
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .qrcode-subtext {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        /* 按钮微交互（如果有按钮的话，这里可以加一个咨询按钮） */
+        .action-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--main-color);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .action-btn:active {
+            transform: scale(0.96);
+        }
+        /* 移动端适配 */
+        @media (max-width: 428px) {
+            body {
+                padding: 15px;
+            }
+            .main-title {
+                font-size: 1.5rem;
+            }
+            .card-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .update-card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://i.imgur.com/9X7Z8lL.png" alt="锦江酒店logo">
+    </div>
+    <h1 class="main-title">前厅部系统升级大合集✨</h1>
+    <p class="sub-title">2025年11月版 | 效率upup 服务更丝滑🥳</p>
+    <div class="card-container">
+        <!-- 比邻星 V1.16 -->
+        <div class="update-card">
+            <h3 class="card-title">
+                比邻星
+                <span class="card-version">V1.16</span>
+            </h3>
+            <div class="card-content">
+                <li>楼层精细化管理：按人分配负责楼层</li>
+                <li>优化「房中小维修」状态筛选</li>
+            </div>
+            <div class="card-benefit">💡 前厅&客房协作更顺畅，房态管理效率拉满！</div>
+        </div>
+        <!-- 7仔同学 V1.1.7 -->
+        <div class="update-card">
+            <h3 class="card-title">
+                7仔同学
+                <span class="card-version">V1.1.7</span>
+            </h3>
+            <div class="card-content">
+                <li>客控界面随门店设备动态显示（如空调）</li>
+            </div>
+            <div class="card-benefit">💡 客控操作不踩坑，服务专业度直接拉满！</div>
+        </div>
+        <!-- 绿云PMS V3.5.29 -->
+        <div class="update-card">
+            <h3 class="card-title">
+                绿云PMS
+                <span class="card-version">V3.5.29</span>
+            </h3>
+            <div class="card-content">
+                <li>时租房插入住倒计时提醒</li>
+                <li>优化加收房费字段控制+身份证校验</li>
+                <li>核心字段（房价/房态/房费）改中文显示</li>
+                <li>修复线上预付订单等BUG</li>
+            </div>
+            <div class="card-benefit">💡 入住/退房/房态监控全流程优化，少出错更高效！</div>
+        </div>
+        <!-- 西软PMS V4.5.0 -->
+        <div class="update-card">
+            <h3 class="card-title">
+                西软PMS
+                <span class="card-version">V4.5.0</span>
+            </h3>
+            <div class="card-content">
+                <li>修复预付线上订单入住未支付的逻辑问题</li>
+            </div>
+            <div class="card-benefit">💡 账务处理零失误，避免财务漏洞&客诉！</div>
+        </div>
+        <!-- 鹿马PMS V1.4.90 -->
+        <div class="update-card">
+            <h3 class="card-title">
+                鹿马PMS
+                <span class="card-version">V1.4.90</span>
+            </h3>
+            <div class="card-content">
+                <li>超售功能支持按时间范围预设</li>
+                <li>优化搭售业务小程序推荐排序</li>
+            </div>
+            <div class="card-benefit">💡 超售管理更灵活，产品推荐更精准，营收up！</div>
+        </div>
+        <!-- 总部BI重构 V202511 -->
+        <div class="update-card">
+            <h3 class="card-title">
+                总部BI重构
+                <span class="card-version">V202511</span>
+            </h3>
+            <div class="card-content">
+                <li>上线运营指标/经营看板/远期房态等10+报表</li>
+                <li>中国区经营日报自动推送</li>
+            </div>
+            <div class="card-benefit">💡 数据全掌握，排班/定价决策更精准！</div>
+        </div>
+    </div>
+    <div class="qrcode-section">
+        <img src="https://i.imgur.com/5KZ7XQ9.png" alt="IT服务台二维码">
+        <div class="qrcode-text">遇到问题找IT服务台 🛎️</div>
+        <div class="qrcode-subtext">扫码一键咨询，快速解决系统问题</div>
+        <button class="action-btn">立即咨询</button>
+    </div>
+</body>
+</html>
